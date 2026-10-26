@@ -1,0 +1,44 @@
+[project]
+name = "perceptron-lab"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "mokundra", email = "nikitamillionov@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0,<3.0",
+    "matplotlib>=3.9,<4.0",
+    "scikit-learn>=1.5,<2.0",
+]
+
+[project.scripts]
+perceptron = "perceptron_lab.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.9",
+    "mypy>=1.12",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
